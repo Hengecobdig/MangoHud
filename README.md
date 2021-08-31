@@ -57,6 +57,24 @@ If you do not wish to compile anything, simply download the file under [Releases
 
 If you are using an Arch-based distribution, install [`mangohud`](https://aur.archlinux.org/packages/mangohud/) and [`lib32-mangohud`](https://aur.archlinux.org/packages/lib32-mangohud/) with your favourite AUR helper. [`mangohud-git`](https://aur.archlinux.org/packages/mangohud-git/) and [`lib32-mangohud-git`](https://aur.archlinux.org/packages/lib32-mangohud-git/) are also available on the AUR if you want the up-to-date version of MangoHud.
 
+If you are building it by yourself, you need to enable multilib repository, by editing pacman config:
+
+```
+sudo nano /etc/pacman.conf
+```
+
+and uncomment:
+
+```
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
+```
+
+then save the file and execute:
+```
+sudo pacman -Syy
+```
+
 #### Debian 11 (Bullseye)
 
 If you are using Debian 11 or later, to install the [MangoHud](https://tracker.debian.org/pkg/mangohud) package, execute:
@@ -85,6 +103,32 @@ If you are using Solus, to install [MangoHud](https://dev.getsol.us/source/mango
 
 ```
 sudo eopkg it mangohud
+```
+
+#### openSUSE
+
+If you run openSUSE Leap or Tumbleweed you can get Mangohud from the official repositories.
+There are two packages, [mangohud](https://software.opensuse.org/package/mangohud) for 64bit and [mangohud-32bit](https://software.opensuse.org/package/mangohud-32bit) for 32bit application support.
+To have Mangohud working for both 32bit and 64bit applications you need to install both packages even on a 64bit operating system.
+
+```
+sudo zypper in mangohud mangohud-32bit
+```
+
+Leap doesn't seem to have the 32bit package.
+
+Leap 15.2
+
+```
+sudo zypper addrepo -f https://download.opensuse.org/repositories/games:tools/openSUSE_Leap_15.2/games:tools.repo
+sudo zypper install mangohud
+```
+
+Leap 15.3
+
+```
+sudo zypper addrepo -f https://download.opensuse.org/repositories/games:tools/openSUSE_Leap_15.3/games:tools.repo
+sudo zypper install mangohud
 ```
 
 #### Flatpak
